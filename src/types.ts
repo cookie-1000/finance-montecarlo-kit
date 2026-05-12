@@ -10,8 +10,18 @@ export interface FinanceMontecarloKitOptions {
 
   /**
    * Configuration for: Deterministic RNG seeding for reproducible runs
+   * @example
+   * ```typescript
+   * { seed: "my-seed-string" }
+   * ```
    */
-  feature1?: Record<string, unknown>;
+  feature1?: {
+    /**
+     * Seed for deterministic random number generation.
+     * If omitted, a default seed is used.
+     */
+    seed?: string;
+  };
 
   /**
    * Configuration for: Pluggable return models (normal, lognormal, bootstrapped)
