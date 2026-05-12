@@ -37,6 +37,16 @@ export interface FinanceMontecarloKitOptions {
 /**
  * Result returned by FinanceMontecarloKit operations.
  */
+/**
+ * Result returned by FinanceMontecarloKit operations.
+ *
+ * @template T - The type of the main result data.
+ *
+ * @example
+ * ```typescript
+ * type Result = FinanceMontecarloKitResult<PortfolioSimulationResult>;
+ * ```
+ */
 export interface FinanceMontecarloKitResult<T = unknown> {
   /** Whether the operation succeeded. */
   success: boolean;
@@ -44,4 +54,27 @@ export interface FinanceMontecarloKitResult<T = unknown> {
   data?: T;
   /** Error message, if the operation failed. */
   error?: string;
+  /**
+   * Detailed risk metrics from the simulation, if available.
+   * Includes Value at Risk (VaR), Conditional VaR (CVaR),
+   * maximum drawdown, and ruin probability.
+   */
+  riskMetrics?: RiskMetrics;
 }
+
+/**
+ * Detailed risk metrics for a Monte Carlo simulation result.
+ */
+export interface RiskMetrics {
+  /** Value at Risk at the specified confidence level (e.g., 95%). */
+  var: number;
+  /** Conditional Value at Risk (expected shortfall) at the same confidence level. */
+  cvar: number;
+  /** Maximum drawdown observed in the simulation. */
+  maxDrawdown: number;
+  /** Probability of portfolio ruin (ending below a threshold). */
+  ruinProbability: number;
+  /** The confidence level used for VaR/CVaR, e.g., 0.95 for 95%. */
+  confidenceLevel: number;
+}
+

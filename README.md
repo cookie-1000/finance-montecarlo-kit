@@ -38,6 +38,24 @@ new FinanceMontecarloKit(options?: FinanceMontecarloKitOptions)
 
 - `run()` - Execute the main operation. Returns `Promise<FinanceMontecarloKitResult>`.
 
+#### Risk Metrics Output
+
+The result object now includes a `riskMetrics` property with detailed risk statistics:
+
+```typescript
+{
+  success: true,
+  data: { ... },
+  riskMetrics: {
+    var: number, // Value at Risk (e.g., -0.12)
+    cvar: number, // Conditional Value at Risk (e.g., -0.18)
+    maxDrawdown: number, // Maximum drawdown (e.g., -0.25)
+    ruinProbability: number, // Probability of ruin (e.g., 0.03)
+    confidenceLevel: number // Confidence level used (e.g., 0.95)
+  }
+}
+```
+
 ## Development
 
 ```bash

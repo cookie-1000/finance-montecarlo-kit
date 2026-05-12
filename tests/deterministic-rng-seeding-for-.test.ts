@@ -21,6 +21,8 @@ describe("FinanceMontecarloKit - Deterministic RNG seeding", () => {
     const result2 = await instance2.run();
     expect(result1.data?.randomValue).toBe(result2.data?.randomValue);
     expect(result1.data?.seed).toBe(seed);
+    // Risk metrics should be undefined for basic RNG test
+    expect(result1.riskMetrics).toBeUndefined();
   });
 
   it("should produce different random values for different seeds", async () => {
