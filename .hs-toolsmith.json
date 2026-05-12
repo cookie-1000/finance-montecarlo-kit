@@ -1,0 +1,13 @@
+{
+  "hsToolsmith": true,
+  "title": "finance-montecarlo-kit",
+  "pitch": "Reusable Monte Carlo engine with portfolio metrics and parameterized scenario presets.",
+  "language": "typescript",
+  "category": "Data Processing",
+  "keyFeatures": [
+    "Deterministic RNG seeding for reproducible runs",
+    "Pluggable return models (normal, lognormal, bootstrapped)",
+    "Built-in risk metrics (VaR, CVaR, drawdown, ruin probability)"
+  ],
+  "targetUsers": "TypeScript developers building personal-finance dashboards, investing calculators, or classroom finance demos."
+}
